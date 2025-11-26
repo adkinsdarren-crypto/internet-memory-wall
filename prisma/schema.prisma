@@ -1,0 +1,50 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL") // Supabase / Postgres connection string
+}
+
+model Memory {
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Content
+  title       String?
+  body        String
+  authorName  String?
+  accentColor String   @default("none")
+
+  // Wall + Tile info
+  wallSlug    String   @default("m")
+  tileIndex   Int
+
+  // Image fields
+  imageData   String?
+  imageUrl    String?
+
+  // Payment
+  paid        Boolean  @default(false)
+  published   Boolean  @default(false)
+
+  // Edit token for future editing
+  editToken   String?  @unique
+
+  // Ensure each tile can have only one memory
+  @@unique([wallSlug, tileIndex])
+}
+
+model PaidTile {
+  id              Int      @id @default(autoincrement())
+  wallSlug        String   @default("m")
+  tileIndex       Int
+  stripeSessionId String   @unique
+  createdAt       DateTime @default(now())
+
+  @@unique([wallSlug, tileIndex])
+}
