@@ -76,7 +76,7 @@ export default function HomePage() {
 
   // Can we claim tiles on the *currently selected* wall?
   const canClaimOnCurrentWall =
-    currentWall === "m" || (isMComplete && currentWall !== "m2");
+  currentWall === "m" || (isMComplete && currentWall === "m2");
 
   // 👇 Form is only allowed to write to unlocked walls
   // Before M is complete → always M
