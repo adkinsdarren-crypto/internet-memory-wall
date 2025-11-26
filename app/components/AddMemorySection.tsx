@@ -24,7 +24,7 @@ export default function AddMemorySection({
   totalTiles,
   priceUsd = 1,
 }: AddMemorySectionProps) {
-  const wall: WallSlug = "m";
+  const wall = "m";
 
   const [selectedTileIndex, setSelectedTileIndex] = useState<number | null>(
     null
