@@ -4,11 +4,7 @@ import { stripe } from "../../../../lib/stripe";
 import { prisma } from "../../../../lib/prisma";
 import Stripe from "stripe";
 
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
+
 
 async function buffer(readable: ReadableStream<Uint8Array>) {
   const reader = readable.getReader();
