@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useCallback, useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
+
 
 type Memory = {
   id: number;
@@ -24,8 +24,7 @@ export default function AddMemorySection({
   totalTiles,
   priceUsd = 1,
 }: AddMemorySectionProps) {
-  const searchParams = useSearchParams();
-  const editToken = searchParams.get("editToken");
+  const wall: WallSlug = "m";
 
   const [selectedTileIndex, setSelectedTileIndex] = useState<number | null>(
     null
