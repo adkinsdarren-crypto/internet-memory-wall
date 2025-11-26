@@ -236,7 +236,7 @@ export default function AddMemorySection({
           accentColor,
           imageData,
           imageUrl: null,
-          editToken: editToken || undefined,
+          
         }),
       });
 
