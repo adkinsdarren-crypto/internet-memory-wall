@@ -454,13 +454,6 @@ export default function TileGrid({
                         #{globalIndex + 1}
                       </div>
                     )}
-
-                    {/* Paid badge */}
-                    {memory?.paid && (
-                      <div className="pointer-events-none absolute right-1 top-1 rounded-full bg-emerald-500/90 px-1.5 py-[2px] text-[8px] font-semibold uppercase tracking-[0.18em] text-slate-950 shadow-[0_0_8px_rgba(16,185,129,0.8)]">
-                        M
-                      </div>
-                    )}
                   </div>
                 </motion.button>
               );
@@ -521,11 +514,7 @@ export default function TileGrid({
                       Tile #{selectedMemory.tileIndex + 1} •{" "}
                       {selectedMemory.authorName || "Anonymous"} •{" "}
                       {new Date(selectedMemory.createdAt).toLocaleString()}
-                      {selectedMemory.paid && (
-                        <span className="ml-2 rounded-full bg-emerald-500/15 px-2 py-[2px] text-[10px] font-semibold uppercase tracking-[0.16em] text-emerald-300">
-                          Paid
-                        </span>
-                      )}
+                      
                     </p>
                   </div>
                   <button
